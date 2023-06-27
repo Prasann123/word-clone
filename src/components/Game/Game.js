@@ -22,7 +22,7 @@ function Game() {
   }
   return (
     <>
-      <GuessList guessListData={guessListData} />
+      <GuessList guessListData={guessListData} answer={answer} />
       <GuessInput handleSubmitGuess={handleSubmitGuess} />
     </>
   );

@@ -1,17 +1,18 @@
 import React from "react";
+import GuessResults from "../GuessResults/GuessResults";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import { range } from "../../utils";
 
-function GuessList({ guessListData }) {
+function GuessList({ guessListData, answer }) {
   /*   const [guessListData, setguessListData] = React.useState([]);
   const guessPushData = [...guessListData, guessWork.guess];
   setguessListData(guessPushData); */
   console.log(guessListData);
   return (
     <div className="guess-results">
-      {guessListData.map((guess, id) => {
+      {range(NUM_OF_GUESSES_ALLOWED).map((num, id) => {
         return (
-          <p key={crypto.randomUUID()} className="guess">
-            {guess}
-          </p>
+          <GuessResults key={num} guess={guessListData[num]} answer={answer} />
         );
       })}
     </div>
